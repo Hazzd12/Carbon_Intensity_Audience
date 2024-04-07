@@ -1,3 +1,4 @@
+import 'package:carbon_intensity_audience/pages/home.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,6 +16,8 @@ class MyApp extends StatelessWidget {
           switch (settings.name) {
             case '/':
               return MaterialPageRoute(builder: (_) => LandingPage());
+            case '/home':
+              return MaterialPageRoute(builder: (_)=> HomePage());
           }
         });
   }
@@ -44,7 +47,7 @@ class _LandingPageState extends State<LandingPage> {
     // Gradually hide the image
     setState(() => _opacity = 0);
     await Future.delayed(Duration(seconds: 1));
-    Navigator.pushNamed(context, '/');
+    Navigator.pushNamed(context, '/home');
   }
 
   @override
