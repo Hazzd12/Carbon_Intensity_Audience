@@ -13,3 +13,31 @@ Widget CustomizedText(String txt,
         fontWeight: font_Weight,
       ));
 }
+
+Widget mySpace(double height) {
+  return SizedBox(height: height);
+}
+
+Widget myButton(
+    String txt,
+    void Function() function,
+    {double width = 200.0,
+      IconData icon = Icons.abc,
+    }
+    ){
+  return
+    SizedBox(
+    width: width, // 设置按钮宽度与屏幕宽度一致
+    child: ElevatedButton(
+      onPressed: function,
+      child: Row(
+        //mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(icon, size: 30),
+          SizedBox(width: 15),
+          CustomizedText(txt, font_color: Colors.black),
+        ],
+      ),
+    ),
+  );
+}
