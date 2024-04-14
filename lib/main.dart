@@ -1,3 +1,4 @@
+import 'package:carbon_intensity_audience/pages/Data.dart';
 import 'package:carbon_intensity_audience/pages/home.dart';
 import 'package:flutter/material.dart';
 
@@ -18,6 +19,8 @@ class MyApp extends StatelessWidget {
               return MaterialPageRoute(builder: (_) => LandingPage());
             case '/home':
               return MaterialPageRoute(builder: (_)=> HomePage());
+            case '/data':
+              return MaterialPageRoute(builder: (_)=> DataPage());
           }
         });
   }

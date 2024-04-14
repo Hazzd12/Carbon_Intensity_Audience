@@ -36,10 +36,10 @@ class HomePage extends StatelessWidget {
               Center(
                 child: Column(
                   children: <Widget>[
-                    myButton('Data',test, icon: Icons.dataset),
-                    myButton('Statistic',test, icon: Icons.bar_chart),
-                    myButton('Factor',test, icon: Icons.pie_chart),
-                    myButton('Location',test, icon: Icons.location_on),
+                    myButton('Data',context,'/data', icon: Icons.dataset),
+                    myButton('Statistic',context,'/data', icon: Icons.bar_chart),
+                    myButton('Factor',context,'/data', icon: Icons.pie_chart),
+                    myButton('Location',context,'/data', icon: Icons.location_on),
                     // ... 其他按钮
                   ],
                 ),
@@ -52,6 +52,7 @@ class HomePage extends StatelessWidget {
   }
 }
 
-void test(){
-
+void goToData(BuildContext context){
+  Navigator.pushNamed(context, '/data');
 }
+void test(){}
