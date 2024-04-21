@@ -46,42 +46,11 @@ Widget myButton(
   );
 }
 
-
-class DatePickerFormField extends StatelessWidget {
-  final String label;
-  final DateTime selectedDate;
-  final ValueChanged<DateTime> onDateSelected;
-
-  DatePickerFormField({
-    required this.label,
-    required this.selectedDate,
-    required this.onDateSelected,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final dateFormat = DateFormat('yyyy-MM-dd');
-
-    return TextFormField(
-      decoration: InputDecoration(
-        labelText: label,
-        suffixIcon: Icon(Icons.calendar_today),
-      ),
-      readOnly: true, // Prevents keyboard from appearing when tapping the field
-      controller: TextEditingController(
-        text: selectedDate == null ? '' : dateFormat.format(selectedDate),
-      ),
-      onTap: () async {
-        DateTime? picked = await showDatePicker(
-          context: context,
-          initialDate: selectedDate ?? DateTime.now(),
-          firstDate: DateTime(2000),
-          lastDate: DateTime(2100),
-        );
-        if (picked != null && onDateSelected != null) {
-          onDateSelected(picked);
-        }
-      },
-    );
+bool checkIfDateValid(DateTime fromDate, DateTime toDate){
+  print(fromDate.isBefore(toDate));
+  if(fromDate.isBefore(toDate)){
+    return true;
   }
+  return false;
 }
+

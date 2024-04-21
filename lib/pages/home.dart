@@ -37,9 +37,9 @@ class HomePage extends StatelessWidget {
                 child: Column(
                   children: <Widget>[
                     myButton('Data',context,'/data', icon: Icons.dataset),
-                    myButton('Statistic',context,'/data', icon: Icons.bar_chart),
-                    myButton('Factor',context,'/data', icon: Icons.pie_chart),
-                    myButton('Location',context,'/data', icon: Icons.location_on),
+                    myButton('Statistic',context,'/statistic', icon: Icons.bar_chart),
+                    myButton('Factor',context,'/factor', icon: Icons.pie_chart),
+                    myButton('Location',context,'/location', icon: Icons.location_on),
                     // ... 其他按钮
                   ],
                 ),

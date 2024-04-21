@@ -1,4 +1,7 @@
 import 'package:carbon_intensity_audience/pages/Data.dart';
+import 'package:carbon_intensity_audience/pages/Factor.dart';
+import 'package:carbon_intensity_audience/pages/Location.dart';
+import 'package:carbon_intensity_audience/pages/Statistic.dart';
 import 'package:carbon_intensity_audience/pages/home.dart';
 import 'package:flutter/material.dart';
 
@@ -21,6 +24,12 @@ class MyApp extends StatelessWidget {
               return MaterialPageRoute(builder: (_)=> HomePage());
             case '/data':
               return MaterialPageRoute(builder: (_)=> DataPage());
+            case '/statistic':
+              return MaterialPageRoute(builder: (_)=> StatisticPage());
+            case '/factor':
+              return MaterialPageRoute(builder: (_)=> FactorPage());
+            case '/location':
+              return MaterialPageRoute(builder: (_)=> LocationPage());
           }
         });
   }
