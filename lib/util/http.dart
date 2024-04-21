@@ -7,6 +7,24 @@ import 'package:intl/intl.dart';
 
 var uri = 'https://api.carbonintensity.org.uk/';
 
+class myStatis{
+  int max;
+  int avg;
+  int min;
+  String index;
+
+  myStatis(this.max,this.avg,this.min,this.index);
+
+}
+
+class myRegion{
+  double forecast;
+  String shortName;
+  List<double> factors;
+
+  myRegion(this.forecast, this.shortName,this.factors );
+}
+
 Future<List<double>> fetchIntensityData(DateTime fromDate, DateTime toDate) async {
   try {
 
@@ -75,6 +93,29 @@ Future<List<double>> fetchIntensityFactor(DateTime fromDate, DateTime toDate) as
   }
 }
 
+Future<myRegion> fetchIntensityRegion(DateTime fromDate, String postcode) async {
+  try {
+    List dates = getDateString(fromDate,fromDate);
+    var url = Uri.parse(uri+'regional/intensity/'+dates[0]+'T00:01Z/fw24h/postcode/'+postcode);
+    print(url.toString());
+    var response = await http.get(url);
+    if (response.statusCode == 200) {
+      var data = jsonDecode(response.body);
+      print(data['data']);
+      print(calculateAverages(data['data']));
+      String name = data['data']['shortname'];
+      return(myRegion(calculateAverages(data['data'])[0], name, calculateFactors(data['data'])));
+    } else {
+      throw Exception('Failed to load data');
+    }
+  } catch (e) {
+    print(e.toString());
+
+    return myRegion(0, 'null', []);
+    // 处理发生的任何异常
+  }
+}
+
 
 List<String> getDateString(DateTime fromDate, DateTime toDate){
   final dateFormat = DateFormat('yyyy-MM-dd');
@@ -105,15 +146,7 @@ List<double> calculateAverages(Map<String, dynamic> data) {
   return [forecastAvg, actualAvg];
 }
 
-class myStatis{
-  int max;
-  int avg;
-  int min;
-  String index;
 
-  myStatis(this.max,this.avg,this.min,this.index);
-
-}
 
 List<double> calculateFactors(Map<String, dynamic> data){
 
@@ -130,7 +163,6 @@ List<double> calculateFactors(Map<String, dynamic> data){
     }
   }
 
-  // 计算每种燃料的平均值
   int count = data['data'].length;
   totals.forEach((fuel, total) {
     averages[fuel] = total / count;
@@ -146,3 +178,4 @@ List<double> calculateFactors(Map<String, dynamic> data){
 
   return result;
 }
+

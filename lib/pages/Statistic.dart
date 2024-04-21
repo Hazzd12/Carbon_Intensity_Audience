@@ -53,6 +53,8 @@ class _StatisticPageState extends State<StatisticPage> {
                 DatePicker(
                   label: 'From',
                   selectedDate: fromDate,
+                  startDate: DateTime(2000),
+                  endDate: DateTime.now(),
                   onDateSelected: (DateTime value) {
                     setState(() {
                       if (checkIfDateValid(value, toDate)) {
@@ -70,6 +72,8 @@ class _StatisticPageState extends State<StatisticPage> {
                 DatePicker(
                   label: 'To',
                   selectedDate: toDate,
+                  startDate: fromDate,
+                  endDate: DateTime.now(),
                   onDateSelected: (DateTime value) {
                     setState(() {
                       if (checkIfDateValid(fromDate, value)) {

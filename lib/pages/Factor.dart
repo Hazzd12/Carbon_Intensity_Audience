@@ -56,7 +56,7 @@ class _FactorPageState extends State<FactorPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('National Data'),
+        title: Text('Factor'),
       ),
       body: Stack(
           //fit: StackFit.expand, // 使Stack填满整个屏幕
@@ -76,6 +76,8 @@ class _FactorPageState extends State<FactorPage> {
                 DatePicker(
                   label: 'From',
                   selectedDate: fromDate,
+                  startDate: DateTime(2000),
+                  endDate: DateTime.now(),
                   onDateSelected: (DateTime value) {
                     setState(() {
                       if (checkIfDateValid(value, toDate)) {
@@ -93,6 +95,8 @@ class _FactorPageState extends State<FactorPage> {
                 DatePicker(
                   label: 'To',
                   selectedDate: toDate,
+                  startDate: fromDate,
+                  endDate: DateTime.now(),
                   onDateSelected: (DateTime value) {
                     setState(() {
                       if (checkIfDateValid(fromDate, value)) {

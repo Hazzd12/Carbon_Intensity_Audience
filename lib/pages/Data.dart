@@ -51,6 +51,8 @@ class _DataPageState extends State<DataPage> {
                 DatePicker(
                   label: 'From',
                   selectedDate: fromDate,
+                  startDate: DateTime(2000),
+                  endDate: DateTime(2100),
                   onDateSelected: (DateTime value) {
                     setState(() {
                       if (checkIfDateValid(value, toDate)) {
@@ -68,6 +70,8 @@ class _DataPageState extends State<DataPage> {
                 DatePicker(
                   label: 'To',
                   selectedDate: toDate,
+                  startDate: fromDate,
+                  endDate: DateTime(2100),
                   onDateSelected: (DateTime value) {
                     setState(() {
                       if (checkIfDateValid(fromDate, value)) {

@@ -39,7 +39,7 @@ class HomePage extends StatelessWidget {
                     myButton('Data',context,'/data', icon: Icons.dataset),
                     myButton('Statistic',context,'/statistic', icon: Icons.bar_chart),
                     myButton('Factor',context,'/factor', icon: Icons.pie_chart),
-                    myButton('Location',context,'/location', icon: Icons.location_on),
+                    myButton('Region',context,'/location', icon: Icons.location_on),
                     // ... 其他按钮
                   ],
                 ),

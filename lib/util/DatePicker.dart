@@ -7,12 +7,15 @@ class DatePicker extends StatefulWidget {
   final String label;
   final DateTime selectedDate;
   final ValueChanged<DateTime> onDateSelected;
-
+  final DateTime endDate;
+  final DateTime startDate;
   const DatePicker({
     Key? key,
     required this.label,
     required this.selectedDate,
     required this.onDateSelected,
+    required this.startDate,
+    required this.endDate,
   }) : super(key: key);
 
   @override
@@ -28,7 +31,7 @@ class _DatePicker extends State<DatePicker> {
     return Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 5.0),
         child: Container(
-            width: 250,
+            width: 320,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -38,7 +41,7 @@ class _DatePicker extends State<DatePicker> {
                 Container(
                   alignment: Alignment.center,
                   height: 50,
-                  padding: EdgeInsets.symmetric(horizontal: 16.0),
+                  padding: EdgeInsets.symmetric(horizontal: 30.0),
                   decoration: BoxDecoration(
                     border: Border.all(
                       color: Colors.grey, // Change this to desired border color
@@ -56,8 +59,8 @@ class _DatePicker extends State<DatePicker> {
                       DateTime? picked = await showDatePicker(
                         context: context,
                         initialDate: widget.selectedDate,
-                        firstDate: DateTime(2000),
-                        lastDate: DateTime.now(),
+                        firstDate: widget.startDate,
+                        lastDate: widget.endDate,
                       );
                       if (picked != null && picked != widget.selectedDate) {
                         widget.onDateSelected(picked);
