@@ -69,7 +69,15 @@ jobs:
         with:
           name: flutter-appbundle
           path: build/app/outputs/bundle/release/*.aab
-
+      - name: Create git tag
+        run: |
+          if ! git rev-parse "v${{ steps.get_flutter_app_version.outputs.TAG_VERSION }}" >/dev/null 2>&1; then
+            git tag "v${{ steps.get_flutter_app_version.outputs.TAG_VERSION }}"
+            git push origin "v${{ steps.get_flutter_app_version.outputs.TAG_VERSION }}"
+          else
+            echo "Tag v${{ steps.get_flutter_app_version.outputs.TAG_VERSION }} already exists!"
+          fi
+          
       - name: Create Github Release
         uses: ncipollo/release-action@v1
         with:
