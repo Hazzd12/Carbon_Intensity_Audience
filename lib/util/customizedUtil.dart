@@ -54,3 +54,9 @@ bool checkIfDateValid(DateTime fromDate, DateTime toDate){
   return false;
 }
 
+class PieData {
+  PieData(this.xData, this.yData, [this.text]);
+  String xData;
+  num yData;
+  Color? text;
+}

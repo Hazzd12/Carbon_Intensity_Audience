@@ -72,7 +72,6 @@ Future<List<double>> fetchIntensityFactor(DateTime fromDate, DateTime toDate) as
     print(e.toString());
     return [0,0];
     // 处理发生的任何异常
-
   }
 }
 
@@ -133,15 +132,17 @@ List<double> calculateFactors(Map<String, dynamic> data){
 
   // 计算每种燃料的平均值
   int count = data['data'].length;
-  print(count);
   totals.forEach((fuel, total) {
     averages[fuel] = total / count;
   });
+  List<double> result=[];
 
-  // 打印每种燃料的平均百分比
   print('Average percentages for each fuel type:');
   averages.forEach((fuel, average) {
     print('$fuel: ${average.toStringAsFixed(2)}%');
+    result.add(average);
   });
-  return [0];
+
+
+  return result;
 }
