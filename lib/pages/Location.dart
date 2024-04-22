@@ -64,9 +64,8 @@ class _LocationPageState extends State<LocationPage> {
         ),
         body: SingleChildScrollView(
             child: Stack(
-                //fit: StackFit.expand, // 使Stack填满整个屏幕
+                //fit: StackFit.expand,
                 children: <Widget>[
-              // 背景图片
               Container(
                   height: MediaQuery.of(context).size.height,
                   decoration: const BoxDecoration(

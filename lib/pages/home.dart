@@ -4,7 +4,6 @@ import '../util/customizedUtil.dart';
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // 获取屏幕宽度，以便所有按钮可以根据屏幕宽度设置一致的长度
     double screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(

@@ -34,13 +34,13 @@ class _DataPageState extends State<DataPage> {
         title: Text('National Data'),
       ),
       body: Stack(
-          //fit: StackFit.expand, // 使Stack填满整个屏幕
+          //fit: StackFit.expand,
           children: <Widget>[
             // 背景图片
             Container(
               decoration: const BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage('asset/background.jpg'), // 替换为你的背景图路径
+                  image: AssetImage('asset/background.jpg'),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -191,7 +191,7 @@ Widget getChart() {
         showLastLabel: true,
         startAngle: -90,
         endAngle: 90,
-        radiusFactor: 0.75, // 调整大小
+        radiusFactor: 0.75,
         //canScaleToFit: true,
         axisLineStyle: AxisLineStyle(
           thickness: 0.15,
@@ -226,7 +226,7 @@ Widget getChart() {
             color: const Color.fromRGBO(237, 34, 35, 1),
           )
         ],
-        isInversed: true, // 逆时针旋转
+        isInversed: true,
       ),
     ],
   );
