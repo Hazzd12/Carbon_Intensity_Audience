@@ -119,7 +119,7 @@ class _LocationPageState extends State<LocationPage> {
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
-                                      CustomizedText(forecast.toString(),
+                                      CustomizedText(forecast.toStringAsFixed(2),
                                           font_color: Colors.black,
                                           font_size: 20),
                                       CustomizedText(shortname,
