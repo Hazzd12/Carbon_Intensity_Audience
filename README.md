@@ -2,9 +2,7 @@
 
 CIA(Carbon Intensity Audience) is a practical tool which can help you get the carbon intensity in the UK.
 
-[Landing]: ./landing_page/index.html	"as"
-
-
+ [访问 Google](https://www.google.com) 
 
 ## Dependencies
 
